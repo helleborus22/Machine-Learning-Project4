@@ -1,6 +1,8 @@
 # Machine Learning Project 4
 # Member Names:
 
+***DRAFT*** Google Doc Link: https://docs.google.com/document/d/1FxyoGI-4Eo2gtWUtdhRD8SwRAJwM8T-6u6hua1RIt0o/edit
+
 Giovanna Lizzio,
 I ju Su (Selina Su),
 Indra Nandagopal,
