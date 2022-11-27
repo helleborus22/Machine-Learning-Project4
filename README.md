@@ -41,15 +41,22 @@ We used yfinance to pull data according to the different tickers selected from J
 We plotted the data using matplotlib for stock price history and stock volume history. 
 We used LSTM Model for training and testing the data. The average of the stock prices was used to train the data. 
 We made predictions based on historical data.
-We also used ARIMA Model to predict the stock price.
+We also used ARIMA Model to predict the stock price. We calculated the mean square error, mean absolute error, root mean square error. 
 We compiled our model using the popular adam optimizer and set the loss as the mean_squarred_error. 
 We visualized the results of our model, which showed trainining, validation and prediction. 
+![img1]()
+
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
 
+![Screen Shot 2022-11-21 at 4.01.31](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.01.31%20PM.png)
+
+
+
 # Limitations: 
 ARIMA Model does not allow to save, but it creates a pdf.
-ARIMA Model is faster compared to the other models, but all machine learning models take time to run.  
+ARIMA Model is faster compared to the other models, but all machine learning models take time to run. We don't have a confusion matrix because 
+During testing, we noticed that at 80/20 split our model produces a higher accuracy score than at 90/10. 
 
 
 
