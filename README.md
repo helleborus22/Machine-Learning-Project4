@@ -53,6 +53,18 @@ We visualized the results of our model, which showed trainining, validation and 
 
 ![img3](/stock-prediction/images/arima_train_test_pred_forecast.png)
 
+We built LTSM model 2 with 50 neurons and 4 hidden layers. The training set is 75% of the data. We added the LSTM layer with the following arguments:
+
+✓ 50 units which is the dimensionality of the output space
+return_sequences=True which determines whether to return the last output in the output sequence, or the full sequence input_shape as the shape of our training set.
+
+✓ When defining the Dropout layers, we specify 0.2, meaning that 20% of the layers will be dropped.
+
+✓ Thereafter, we add the Dense layer that specifies the output of 1 unit.
+
+✓ After this, we compile our model using the popular adam optimizer and set the loss as the mean_squarred_error.
+
+![img4](/stock-prediction/images/LSTM%20Model%202.jpg)
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
@@ -63,6 +75,12 @@ We used Flask and yfinance API to pull the stock quote.
 
 ![Screen Shot 3](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.03.21%20PM.png)
 
+# Conclusions
+R2 score for LSTM Model 1: 0.98
+
+R2 score for LSTM Model 2: 0.97
+
+R2 score for ARIMA Model : 0.93
 
 
 # Limitations: 
