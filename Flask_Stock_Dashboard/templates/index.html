@@ -15,7 +15,7 @@
 
   <body class="text-center">
       <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-          <header class="masthead mb-auto">
+          <header class="masthead">
             <div class="inner">
               <h3 class="masthead-brand">Stock Predictor</h3>
               <!--<nav class="nav nav-masthead justify-content-center">
@@ -37,20 +37,25 @@
               </div>
               
               <div id="chart_container"></div>
+               
+              <div id="container">
+                <h1 class="cover-heading">Price prediction</h1>
+                <h4></h4>
+                <img
+                src="/static/image/arima_model.png"
+                class="img-responsive"
+                alt="Model image"
+                width="635" height="350"
+                />
+              </div>
               
-              <div id="container"></div>
-              
-            </div>
-            </main>
+           
           </div>
-          
-          <footer class="mastfoot mt-auto">
-            <div class="inner">
-              <p></p>
-            </div>
-          </footer>
+         
+          </main>
+
         </div>
-    
+       
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -75,6 +80,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     
     <script src="../static/js/site.js"></script>
+    <script src="../model.py"></script>
   
 
   </body>

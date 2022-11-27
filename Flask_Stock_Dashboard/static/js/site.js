@@ -26,18 +26,27 @@ Site.prototype.GetQuote = function(){
 		context.symbol = data.symbol;
 		context.price = data.ask;
 
-		//if(data.quoteType="MUTUALFUND"){
-		//	context.price = data.previousClose
-		//}
-
 		// call the request to load the chart and pass the data context with it.
 		that.LoadChart(context);
 	});
 };
 
+/*site.prototype.GetSymbol=function(){
+	var that =this;
+	$.ajax({
+		url:"/getModel?symbol=" + that.symbol,
+		mothod:"POST",
+		cache: false
+	})
+	.done(function(data){
+       console.log(data)
+	})
+}*/
+
 Site.prototype.SubmitForm = function(){
 	this.symbol = $("#symbol").val();
 	this.GetQuote();
+	//this.GetSymbol();
 }
 
 Site.prototype.LoadChart = function(quote){
@@ -52,6 +61,7 @@ Site.prototype.LoadChart = function(quote){
 		console.log(quote)
 	});
 };
+
 
 Site.prototype.RenderChart = function(data, quote){
 	var priceData = [];
