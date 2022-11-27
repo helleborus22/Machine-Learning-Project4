@@ -46,12 +46,22 @@ We made predictions based on historical data.
 We also used ARIMA Model to predict the stock price. We calculated the mean square error, mean absolute error, root mean square error. 
 We compiled our model using the popular adam optimizer and set the loss as the mean_squarred_error. 
 We visualized the results of our model, which showed trainining, validation and prediction. 
-![img1]()
+
+![img1](/stock-prediction/images/arima_test_pred_forecast.png)
+
+![img2](/stock-prediction/images/arima_train_test.png)
+
+![img3](/stock-prediction/images/arima_train_test_pred_forecast.png)
+
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
 
-![Screen Shot 2022-11-21 at 4.01.31](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.01.31%20PM.png)
+![Screen Shot 1](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.01.31%20PM.png)
+
+![Screen Shot 2](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.02.56%20PM.png)
+
+![Screen Shot 3](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.03.21%20PM.png)
 
 
 
