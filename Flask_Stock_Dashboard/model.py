@@ -168,7 +168,7 @@ def ARIMA_model(df_arima):
     plt.ylabel('Stock Price')
     plt.legend()
     plt.grid(True)
-    plt.savefig('arima_train_test_pred_forecast.png')
+    plt.savefig('/Users/selinasu/Desktop/Machine-Learning-Project4/Flask_Stock_Dashboard/static/image/arima_train_test_pred_forecast.png')
     plt.show()
     print("--------------------------------------------------------------------")
     
@@ -184,7 +184,7 @@ def ARIMA_model(df_arima):
     plt.ylabel('Stock Price')
     plt.legend()
     plt.grid(True)
-    plt.savefig('arima_test_pred_forecast.png')
+    plt.savefig('/Users/selinasu/Desktop/Machine-Learning-Project4/Flask_Stock_Dashboard/static/image/arima_test_pred_forecast.png')
     plt.show()
     print("--------------------------------------------------------------------")
     return df_pred  
@@ -194,7 +194,7 @@ def ARIMA_model(df_arima):
 # In[86]:
 def passfunction(ticker_name):
     df_ticker=get_historical(ticker_name)
-    #df_predic=ARIMA_model(df_ticker)
+    #accuracy,rmse=ARIMA_model(df_ticker)
     return df_ticker
 #ARIMA_model(df_ticker_data)
 

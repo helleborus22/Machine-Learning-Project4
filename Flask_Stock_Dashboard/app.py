@@ -80,9 +80,9 @@ def display_history():
 def test():
     #model
     ticker=request.args.get('symbol', default="AAPL")
-    test= passfunction(ticker)
-    test=test.to_json()
-    return test
+    df_ticker= passfunction(ticker)
+    df_ticker=df_ticker.to_json()
+    return df_ticker
 
 if __name__ == "__main__":
     app.run(debug=True)

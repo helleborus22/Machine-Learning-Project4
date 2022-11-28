@@ -25,28 +25,18 @@ Site.prototype.GetQuote = function(){
 		context.shortName = data.shortName;
 		context.symbol = data.symbol;
 		context.price = data.ask;
-
+        
+		console.log(data.symbol)
 		// call the request to load the chart and pass the data context with it.
 		that.LoadChart(context);
 	});
-};
 
-/*site.prototype.GetSymbol=function(){
-	var that =this;
-	$.ajax({
-		url:"/getModel?symbol=" + that.symbol,
-		mothod:"POST",
-		cache: false
-	})
-	.done(function(data){
-       console.log(data)
-	})
-}*/
+};
 
 Site.prototype.SubmitForm = function(){
 	this.symbol = $("#symbol").val();
 	this.GetQuote();
-	//this.GetSymbol();
+	this.test()
 }
 
 Site.prototype.LoadChart = function(quote){
@@ -62,6 +52,17 @@ Site.prototype.LoadChart = function(quote){
 	});
 };
 
+Site.prototype.test = function(symbol){
+	var that = this;
+	$.ajax({
+		url: "/test?symbol=" + that.symbol,
+		method: "GET",
+		cache: false
+	}).done(function(data) {
+
+		console.log(data)
+	})
+}
 
 Site.prototype.RenderChart = function(data, quote){
 	var priceData = [];
