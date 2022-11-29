@@ -122,6 +122,8 @@ def passfunction():
     df_arima=pd.DataFrame(list(collection.find()))
 
     mse,mae,rmse,accuracy,arima_forecast_df =ARIMA_model(ticker,df_arima)
+
+    
     return render_template('index.html',symbol=ticker,mse=round(mse,2),mae=round(mae,2),rmse=round(rmse,2),accuracy=round(accuracy,2),arima_forecast_df=arima_forecast_df)
     #return arima_forecast_df
     #ARIMAmodel=getmodel()

@@ -5,7 +5,7 @@ var Site = function(){
 Site.prototype.Init = function(){
 	this.GetQuote();
 	$("#symbol").on("click", function(){
-		$(this).val("");
+		$(this).val("")
 	});
 };
 
@@ -25,7 +25,7 @@ Site.prototype.GetQuote = function(){
 		context.shortName = data.shortName;
 		context.symbol = data.symbol;
 		context.price = data.ask;
-        
+      
 		console.log(data.symbol)
 		// call the request to load the chart and pass the data context with it.
 		that.LoadChart(context);
@@ -37,7 +37,6 @@ Site.prototype.SubmitForm = function(){
 	this.symbol = $("#symbol").val();
 	this.GetQuote();
 	this.data()
-	this.model()
 }
 
 Site.prototype.LoadChart = function(quote){
@@ -60,8 +59,9 @@ Site.prototype.data = function(symbol){
 		method: "GET",
 		cache: false
 	}).done(function(data) {
-
-		console.log(data)
+        
+		symbol=data.symbol
+		console.log(symbol)
 	})
 }
 

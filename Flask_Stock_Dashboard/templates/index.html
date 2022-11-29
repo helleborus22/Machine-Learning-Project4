@@ -13,24 +13,24 @@
   
 </head>
 
-  <body class="text-center">
+  <body class="text-center" >
       <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
           <header class="masthead">
-            <div class="inner">
-              <h3 class="masthead-brand">Stock Predictor</h3>
+            <div class="inner" >
+              <h3 class="masthead-brand">Stock Predictor App</h3>
               <!--<nav class="nav nav-masthead justify-content-center">
                 <a class="nav-link active" href="#">Home</a>
                 <nav>-->
             </div>
           </header>
-          <div id="widgetContent">
+          <div id="widgetContent"  style="background-image:url(../static/image/background.png)">
             <main role="main" class="inner">
               <h1 class="cover-heading">Stock Data</h1>
               <p class="lead">A Python and Flask based Stock Quote Module</p>
               <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
               <div class="row">
               <div class="input-group mb-3">
-                <input id="symbol" type="text" class="form-control" placeholder="Enter Stock Symbol" aria-label="Stock" aria-describedby="basic-addon2">
+                <input id="symbol",type="text" class="form-control" placeholder="Enter Stock Symbol" aria-label="Stock" aria-describedby="basic-addon2">
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" onclick="site.SubmitForm();">Search</button>
                 </div>
@@ -42,9 +42,10 @@
 
 
               <div id="container">
-                <h1 class="cover-heading">{{symbol}} Price prediction</h1>
-              <!--  <p>Ticker:{{symbol}}</p>
-                <p>Accuracy: {{accuracy}}</p>
+                <h1 class="cover-heading">Price prediction</h1>
+                
+                <!--<p id="pass">{{symbol }}</p>
+                <p id="pass">Accuracy: {{accuracy}}</p>
                 <p>Prediction: {{arima_forecast_df}}</p>
                 <p>{{mse}}</p>
                 <p>{{ mae }}</p>-->
@@ -52,14 +53,14 @@
                 src="/static/image/arima_train_test_pred_forecast.png"
                 class="img-responsive"
                 alt="Model image"
-                width="635" height="350"
+                width="640" height="360"
                 />
                 <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
                 <img
                 src="/static/image/arima_test_pred_forecast.png"
                 class="img-responsive"
                 alt="Model image"
-                width="635" height="350"
+                width="640" height="360"
                 />
                 <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
                 <img
@@ -79,7 +80,14 @@
           </main>
 
         </div>
-       
+          
+        <div class="col-md-12">
+          <center>
+          <h3>
+          <a href="https://github.com/helleborus22/Machine-Learning-Project4">Back To GitHub Repository</a>
+          </h3>
+        </center>
+        </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
