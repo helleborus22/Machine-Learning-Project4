@@ -39,7 +39,7 @@ We normalized the data before model fitting using MinMaxScaler
 The training dataset contained the last 180-day closing price values. 
 To prevent overfitting we added four hidden layers
 - Database Management: 
-We used SQL lite to create our database.
+We used SQL lite to create our database for flask and Mongo for Machine Learning
 - Machine Learning:
 We used yfinance to pull data according to the different tickers selected from July 2015 to December 2020.
 We plotted the data using matplotlib for stock price history and stock volume history. 
