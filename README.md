@@ -86,6 +86,7 @@ return_sequences=True which determines whether to return the last output in the 
 
 ![img14](/stock-prediction/images/META%20Forecast%20by%20LSTM%202.jpg)
 
+![img15](/stock-prediction/images/META%20Forecast%20by%20LSTM.jpg)
 
 
 - User Interface:
