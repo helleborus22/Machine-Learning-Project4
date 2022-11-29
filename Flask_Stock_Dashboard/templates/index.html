@@ -40,7 +40,10 @@
                
               <div id="container">
                 <h1 class="cover-heading">Price prediction</h1>
-                <h4></h4>
+                <p>Ticker:{{symbol}}</p>
+                <p>Accuracy: {{accuracy}}</p>
+                <p>Prediction: {{arima_forecast_df}}</p>
+                <p>{{rmse}}</p>
                 <img
                 src="/static/image/arima_train_test_pred_forecast.png"
                 class="img-responsive"
@@ -80,7 +83,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     
     <script src="../static/js/site.js"></script>
-    <script src="../model.py"></script>
+   <!---- <script src="../model.py"></script>-->
   
 
   </body>

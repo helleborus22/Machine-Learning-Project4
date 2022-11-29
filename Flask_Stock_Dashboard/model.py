@@ -44,7 +44,7 @@ warnings.filterwarnings('ignore')
 #import pickle as pkl
 import yfinance as yf
 from flask import request
-
+import pymongo
 #import app
 #from app import display_quote
 plt.style.use('fivethirtyeight')
@@ -69,7 +69,17 @@ def get_historical(ticker):
       'Adj Close': 'adjclose',
       'Volume': 'volume'
       })
-   df_ticker.to_csv(f'content/{ticker}.csv', sep=',', index=True)
+   df_ticker.to_csv('modeldata.csv', index=False)
+
+
+   client = pymongo.MongoClient("mongodb://localhost:27017")
+   db =client.stockDB
+   collection = db.stocks_now
+   collection.delete_many({})
+   data2=df_ticker.to_dict(orient='records')
+   collection.insert_many(data2)
+     
+
    
    # Create Engine for project4 data
    #import sqlite3 as sl
@@ -84,7 +94,7 @@ def get_historical(ticker):
 
 
 def ARIMA_model(df_arima):
-    ticker='GOOG'
+
     ## Add a dummy row at the end. This will not be used to predict. 
     useast = datetime.now(pytz.timezone('America/New_York'))
     useast = useast.strftime('%Y-%m-%d')
@@ -107,13 +117,13 @@ def ARIMA_model(df_arima):
     plt.grid(True)
     plt.xlabel('Dates')
     plt.ylabel('Close Prices')
-    title_arima = ticker+ ' Stock Price Prediction by ARIMA'
+    title_arima =  ' Stock Price Prediction by ARIMA'
     plt.title(title_arima)
     plt.plot(train_data['close'], 'green', label='Train data')
     plt.plot(test_data['close'], 'blue', label='Test data')
     plt.legend()
     plt.savefig('arima_train_test.png')
-    plt.show()
+    #plt.show()
         
     train_arima = train_data['avg']
     test_arima = test_data['close']
@@ -162,14 +172,14 @@ def ARIMA_model(df_arima):
     plt.plot(test_data.index, y, color = 'red', label = 'Test Stock Price')
     plt.plot(test_data.index, predictions, color = 'blue', label = 'Predicted Stock Price')
     plt.plot(arima_forecast_df['predictions'], color='Yellow', label = 'Forecasted Stock Price')
-    title_arima = ticker+ ' Stock Price Prediction - ARIMA Model'
+    title_arima = ' Stock Price Prediction - ARIMA Model'
     plt.title(title_arima)
     plt.xlabel('Time')
     plt.ylabel('Stock Price')
     plt.legend()
     plt.grid(True)
     plt.savefig('/Users/selinasu/Desktop/Machine-Learning-Project4/Flask_Stock_Dashboard/static/image/arima_train_test_pred_forecast.png')
-    plt.show()
+    #plt.show()
     print("--------------------------------------------------------------------")
     
     # Visualising the results
@@ -178,24 +188,28 @@ def ARIMA_model(df_arima):
     plt.plot(test_data.index, y, color = 'red', label = 'Test Stock Price')
     plt.plot(test_data.index, predictions, color = 'blue', label = 'Predicted Stock Price')
     plt.plot(arima_forecast_df['predictions'], color='Yellow', label = 'Forecasted Stock Price')
-    title_arima = ticker+ ' Stock Price Prediction - ARIMA Model'
+    title_arima = ' Stock Price Prediction - ARIMA Model'
     plt.title(title_arima)
     plt.xlabel('Time')
     plt.ylabel('Stock Price')
     plt.legend()
     plt.grid(True)
     plt.savefig('/Users/selinasu/Desktop/Machine-Learning-Project4/Flask_Stock_Dashboard/static/image/arima_test_pred_forecast.png')
-    plt.show()
+    #plt.show()
     print("--------------------------------------------------------------------")
-    return df_pred  
+    return mse,mae,rmse,accuracy 
         
 
 
 # In[86]:
-def passfunction(ticker_name):
-    df_ticker=get_historical(ticker_name)
-    #accuracy,rmse=ARIMA_model(df_ticker)
-    return df_ticker
+
+#def path(ticker_name):
+    #return ticker_name
+
+#df_ticker=get_historical(ticker_name)
+#arima_forecast_df =ARIMA_model(ticker_name,df_ticker)
+#arima_forecast_df
+    #return df_ticker
 #ARIMA_model(df_ticker_data)
 
 

@@ -36,7 +36,8 @@ Site.prototype.GetQuote = function(){
 Site.prototype.SubmitForm = function(){
 	this.symbol = $("#symbol").val();
 	this.GetQuote();
-	this.test()
+	this.data()
+	this.model()
 }
 
 Site.prototype.LoadChart = function(quote){
@@ -52,10 +53,10 @@ Site.prototype.LoadChart = function(quote){
 	});
 };
 
-Site.prototype.test = function(symbol){
+Site.prototype.data = function(symbol){
 	var that = this;
 	$.ajax({
-		url: "/test?symbol=" + that.symbol,
+		url: "/modeldata?symbol=" + that.symbol,
 		method: "GET",
 		cache: false
 	}).done(function(data) {
@@ -63,6 +64,9 @@ Site.prototype.test = function(symbol){
 		console.log(data)
 	})
 }
+
+
+
 
 Site.prototype.RenderChart = function(data, quote){
 	var priceData = [];

@@ -5,8 +5,12 @@ import json
 from bson import json_util
 from bson.json_util import dumps
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 from datetime import datetime, timedelta
 import pandas as pd
+import time
+
 
 from flask import Response
 import io
@@ -19,10 +23,12 @@ from statsmodels.tsa.arima.model import ARIMA
 import math
 from math import sqrt
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import pytz
+import numpy as np
 
 import model
-from model import ARIMA_model,get_historical,passfunction
-
+from model import ARIMA_model,get_historical
+import simplejson
 # instantiate the Flask app.
 app = Flask(__name__)
 
@@ -76,13 +82,56 @@ def display_history():
     #df_arima_pred= ARIMA_model(df_ticker, ticker)
    
 
-@app.route("/test")
-def test():
-    #model
-    ticker=request.args.get('symbol', default="AAPL")
-    df_ticker= passfunction(ticker)
-    df_ticker=df_ticker.to_json()
-    return df_ticker
+
+
+@app.route("/modeldata")
+
+def passfunction():
+    model
+    symbol=request.args.get('symbol', default="AAPL")
+
+    ticker=symbol
+    #try:
+        #get_historical(ticker)
+    #except:
+        #return render_template('index.html',not_found=True)
+    #else:
+    #ticker_name=path(ticker)
+
+    df=get_historical(ticker)
+    df1=df.to_json()
+    #getmodel()
+
+    #return df1
+    MONGODB_HOST = 'localhost'
+    MONGODB_PORT = 27017
+    DBS_NAME = 'stockDB'
+    COLLECTION = 'stocks_now'
+    FIELDS = {'Date': True, 'open': True, 'high': True, 'low': True, 'close': True,'adjclose':True,'volume':True, '_id': False}
+    
+    connection=  MongoClient(MONGODB_HOST, MONGODB_PORT)
+    collection = connection[DBS_NAME][COLLECTION]
+    data = collection.find(projection=FIELDS)
+    json_combined = []
+    for item in data:
+        json_combined.append(item)
+    json_combined = json.dumps(json_combined, default=json_util.default)
+    
+    #return json_combined
+
+    df_arima=pd.DataFrame(list(collection.find()))
+
+    mse,mae,rmse,accuracy =ARIMA_model(df_arima)
+    return render_template('index.html',mse=round(mse,2),mae=round(mae,2),rmse=round(rmse,2),accuracy=round(accuracy,2))
+    #return arima_forecast_df
+#ARIMAmodel=getmodel()
+#rmse,accuracy,arima_forecast_df   
+    #return render_template('index.html',rmse=round(rmse,2),accuracy=round(accuracy,2),arima_forecast_df=arima_forecast_df)
+    
+        
+    #df_ticker= passfunction(ticker)
+    #df_ticker=df_ticker.to_json()
+    #return render_template('index.html',df_ticker)
 
 if __name__ == "__main__":
     app.run(debug=True)
