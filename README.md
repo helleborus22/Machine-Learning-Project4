@@ -53,11 +53,10 @@ We visualized the results of our model, which showed trainining, validation and 
 
 ![img2](/stock-prediction/images/META%20Linear%20Regression%20Forecast.jpg)
 
-![img3](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
+
 
 ![img4](/stock-prediction/images/LSTM%20Model%201.jpg)
 
-![img6](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
 
 
 ![img7](/stock-prediction/images/AAPL%20Prediction%20by%20ARIMA.jpg)
@@ -87,7 +86,7 @@ return_sequences=True which determines whether to return the last output in the 
 
 ![img14](/stock-prediction/images/META%20Forecast%20by%20LSTM%202.jpg)
 
-![img15](/stock-prediction/images/META%20Forecast%20by%20LSTM%202.jpg)
+
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
