@@ -1,16 +1,22 @@
 # Machine Learning Project 4
 # Member Names:
 
-***DRAFT*** Google Doc Link: https://docs.google.com/document/d/1FxyoGI-4Eo2gtWUtdhRD8SwRAJwM8T-6u6hua1RIt0o/edit
-
 Giovanna Lizzio,
+
 I ju Su (Selina Su),
+
 Indra Nandagopal,
+
 Joshua Cressaty,
+
 Kelly Brown,
+
 Michael Ariwodo,
+
 Miranda Hermes,
+
 Mohamed Bilal,
+
 Marjorie Muñoz.
 
 # Project Description
@@ -19,10 +25,6 @@ Creating an interactive webpage where an investor may look up a prediction of fu
 
 # Datasets to Be Used
 -Yahoo Finance
-
--Kaggle US Stock Market Data 
-
--Polygon API
 
 -Nasdaq
 
@@ -64,7 +66,7 @@ return_sequences=True which determines whether to return the last output in the 
 
 ✓ After this, we compile our model using the popular adam optimizer and set the loss as the mean_squarred_error.
 
-![img4](/stock-prediction/images/LSTM%20Model%202.jpg)
+
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
@@ -85,7 +87,7 @@ R2 score for ARIMA Model : 0.93
 
 # Limitations: 
 ARIMA Model does not allow to save, but it creates a pdf.
-ARIMA Model is faster compared to the other models, but all machine learning models take time to run. We don't have a confusion matrix because 
+ARIMA Model is faster compared to the other models, but all machine learning models take time to run.
 During testing, we noticed that at 80/20 split our model produces a higher accuracy score than at 90/10. 
 
 
