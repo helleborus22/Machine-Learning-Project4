@@ -57,6 +57,9 @@ We visualized the results of our model, which showed trainining, validation and 
 
 ![img4](/stock-prediction/images/LSTM%20Model%201.jpg)
 
+![img5](/stock-prediction/images/LSTM%20Model%202.jpg)
+
+![img6](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
 
 
 ![img7](/stock-prediction/images/AAPL%20Prediction%20by%20ARIMA.jpg)
@@ -82,9 +85,11 @@ return_sequences=True which determines whether to return the last output in the 
 
 ✓ After this, we compile our model using the popular adam optimizer and set the loss as the mean_squarred_error.
 
-![img5](/stock-prediction/images/LSTM%20Model%202.jpg)
+![img13](/stock-prediction/images/LSTM%20Model%202.jpg)
 
-![img6](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
+![img14](/stock-prediction/images/META%20Forecast%20by%20LSTM%202.jpg)
+
+![img15](/stock-prediction/images/META%20Forecast%20by%20LSTM%202.jpg)
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
