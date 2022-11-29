@@ -49,11 +49,27 @@ We also used ARIMA Model to predict the stock price. We calculated the mean squa
 We compiled our model using the popular adam optimizer and set the loss as the mean_squarred_error. 
 We visualized the results of our model, which showed trainining, validation and prediction. 
 
-![img1](/stock-prediction/images/arima_test_pred_forecast.png)
+![img1](/stock-prediction/images/META%20Linear%20Regression%20Prediction.jpg)
 
-![img2](/stock-prediction/images/arima_train_test.png)
+![img2](/stock-prediction/images/META%20Linear%20Regression%20Forecast.jpg)
 
-![img3](/stock-prediction/images/arima_train_test_pred_forecast.png)
+![img3](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
+
+![img4](/stock-prediction/images/LSTM%20Model%201.jpg)
+
+
+
+![img7](/stock-prediction/images/AAPL%20Prediction%20by%20ARIMA.jpg)
+
+![img8](/stock-prediction/images/AAPL%20Forecast%20by%20ARIMA.jpg)
+
+![img9](/stock-prediction/images/AAPL%20Stock%20Price%20Forecast%20by%20ARIMA.jpg)
+
+![img10](/stock-prediction/images/ARIMA%202023.jpg)
+
+![img11](/stock-prediction/images/ARIMA%20Prediction%202023.jpg)
+
+![img12](/stock-prediction/images/ARIMA%20Forecast%202023.jpg)
 
 We built LTSM model 2 with 50 neurons and 4 hidden layers. The training set is 75% of the data. We added the LSTM layer with the following arguments:
 
@@ -66,7 +82,9 @@ return_sequences=True which determines whether to return the last output in the 
 
 ✓ After this, we compile our model using the popular adam optimizer and set the loss as the mean_squarred_error.
 
+![img5](/stock-prediction/images/LSTM%20Model%202.jpg)
 
+![img6](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
 
 - User Interface:
 We used Flask and yfinance API to pull the stock quote. 
