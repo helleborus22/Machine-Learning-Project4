@@ -78,11 +78,11 @@ We used Flask and yfinance API to pull the stock quote.
 ![Screen Shot 3](/Flask_Stock_Dashboard/image/Screen%20Shot%202022-11-21%20at%204.03.21%20PM.png)
 
 # Conclusions
-R2 score for LSTM Model 1: 0.98
+R2 score for LSTM Model 1: 0.93
 
 R2 score for LSTM Model 2: 0.97
 
-R2 score for ARIMA Model : 0.93
+R2 score for ARIMA Model : 0.98
 
 
 # Limitations: 
