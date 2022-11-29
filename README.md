@@ -31,7 +31,7 @@ Creating an interactive webpage where an investor may look up a prediction of fu
 # Tasks
 - Data pull:
 Web scraping model allowed us to find historical stock price openings and closings and earnings data.
-- ETL
+- ETL: 
 We checked and removed null values
 We created a dataframe using only the close stock price column
 We converted the dataframe to a numpy array to train the LSTM Model
