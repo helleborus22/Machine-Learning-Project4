@@ -1,5 +1,5 @@
 var Site = function(){
-	this.symbol = "AAPL";
+	this.symbol = "";
 };
 
 Site.prototype.Init = function(){

@@ -45,7 +45,7 @@ def home():
 def display_quote():
     # get a stock ticker symbol from the query string
     # default to AAPL
-    symbol = request.args.get('symbol', default="AAPL")
+    symbol = request.args.get('symbol')
 
     # pull the stock quote
     quote = yf.Ticker(symbol)
@@ -57,7 +57,7 @@ def display_quote():
 @app.route("/history")
 def display_history():
     #get the query string parameters
-    symbol = request.args.get('symbol', default="AAPL")
+    symbol = request.args.get('symbol')
     period = request.args.get('period', default="1y")
     interval = request.args.get('interval', default="1mo")
 
@@ -121,11 +121,11 @@ def passfunction():
 
     df_arima=pd.DataFrame(list(collection.find()))
 
-    mse,mae,rmse,accuracy =ARIMA_model(df_arima)
-    return render_template('index.html',mse=round(mse,2),mae=round(mae,2),rmse=round(rmse,2),accuracy=round(accuracy,2))
+    mse,mae,rmse,accuracy,arima_forecast_df =ARIMA_model(ticker,df_arima)
+    return render_template('index.html',symbol=ticker,mse=round(mse,2),mae=round(mae,2),rmse=round(rmse,2),accuracy=round(accuracy,2),arima_forecast_df=arima_forecast_df)
     #return arima_forecast_df
-#ARIMAmodel=getmodel()
-#rmse,accuracy,arima_forecast_df   
+    #ARIMAmodel=getmodel()
+    #rmse,accuracy,arima_forecast_df   
     #return render_template('index.html',rmse=round(rmse,2),accuracy=round(accuracy,2),arima_forecast_df=arima_forecast_df)
     
         

@@ -22,9 +22,9 @@ from datetime import datetime, timedelta
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import pytz
-
+from pandas.plotting import table 
 # In[80]:
-
+import dataframe_image as dfi
 
 from statsmodels.tsa.arima.model import ARIMA
 import statsmodels.api as sm
@@ -93,7 +93,7 @@ def get_historical(ticker):
 # In[84]:
 
 
-def ARIMA_model(df_arima):
+def ARIMA_model(ticker,df_arima):
 
     ## Add a dummy row at the end. This will not be used to predict. 
     useast = datetime.now(pytz.timezone('America/New_York'))
@@ -117,12 +117,12 @@ def ARIMA_model(df_arima):
     plt.grid(True)
     plt.xlabel('Dates')
     plt.ylabel('Close Prices')
-    title_arima =  ' Stock Price Prediction by ARIMA'
+    title_arima = ticker+ ' Stock Price Prediction by ARIMA'
     plt.title(title_arima)
     plt.plot(train_data['close'], 'green', label='Train data')
     plt.plot(test_data['close'], 'blue', label='Test data')
     plt.legend()
-    plt.savefig('arima_train_test.png')
+    plt.savefig('static/image/arima_train_test.png')
     #plt.show()
         
     train_arima = train_data['avg']
@@ -166,13 +166,15 @@ def ARIMA_model(df_arima):
     arima_forecast_df = df_pred.loc[(df_pred['Date'] >= first_forecast_date.date())]
     arima_forecast_df = arima_forecast_df.set_index('Date')
 
+    dfi.export(arima_forecast_df, 'static/image/predictable.png')
+    
     print("--------------------------------------------------------------------")
     plt.figure(figsize=(12,6))
     plt.plot(train_data.index[-600:], train_data['close'].tail(600), color='green', label = 'Train Stock Price')
     plt.plot(test_data.index, y, color = 'red', label = 'Test Stock Price')
     plt.plot(test_data.index, predictions, color = 'blue', label = 'Predicted Stock Price')
     plt.plot(arima_forecast_df['predictions'], color='Yellow', label = 'Forecasted Stock Price')
-    title_arima = ' Stock Price Prediction - ARIMA Model'
+    title_arima = ticker+' Stock Price Prediction - ARIMA Model'
     plt.title(title_arima)
     plt.xlabel('Time')
     plt.ylabel('Stock Price')
@@ -188,7 +190,7 @@ def ARIMA_model(df_arima):
     plt.plot(test_data.index, y, color = 'red', label = 'Test Stock Price')
     plt.plot(test_data.index, predictions, color = 'blue', label = 'Predicted Stock Price')
     plt.plot(arima_forecast_df['predictions'], color='Yellow', label = 'Forecasted Stock Price')
-    title_arima = ' Stock Price Prediction - ARIMA Model'
+    title_arima = ticker+' Stock Price Prediction - ARIMA Model'
     plt.title(title_arima)
     plt.xlabel('Time')
     plt.ylabel('Stock Price')
@@ -197,7 +199,7 @@ def ARIMA_model(df_arima):
     plt.savefig('/Users/selinasu/Desktop/Machine-Learning-Project4/Flask_Stock_Dashboard/static/image/arima_test_pred_forecast.png')
     #plt.show()
     print("--------------------------------------------------------------------")
-    return mse,mae,rmse,accuracy 
+    return mse,mae,rmse,accuracy,arima_forecast_df 
         
 
 
