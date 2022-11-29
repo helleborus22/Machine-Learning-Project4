@@ -57,8 +57,6 @@ We visualized the results of our model, which showed trainining, validation and 
 
 ![img4](/stock-prediction/images/LSTM%20Model%201.jpg)
 
-![img5](/stock-prediction/images/LSTM%20Model%202.jpg)
-
 ![img6](/stock-prediction/images/META%20Prediction%20by%20LSTM.jpg)
 
 
