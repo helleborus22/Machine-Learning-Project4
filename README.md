@@ -54,7 +54,7 @@ We found the ARIMA model to be the most accurate.
 
 
 - User Interface:
-We used Flask and yfinance API to pull the stock quote. 
+We used python flask, jQuery and html to create a user interactive dashboard.
 
 ![Screen Shot 1](/Flask_Stock_Dashboard/image_dashboard/initial_page.png)
 
